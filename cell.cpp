@@ -10,6 +10,14 @@ Cell::Cell(const std::string& value, const Color& color)
     , m_color(color)
 {}
 
+Cell& Cell::operator=(const Cell& obj) {
+    if (&obj != this) {
+        set_value(obj.get_value());
+        set_color(obj.get_color());
+    }
+    return *this;
+}
+
 std::string Cell::get_value() const {
     return m_value;
 }

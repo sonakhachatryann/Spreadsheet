@@ -10,6 +10,8 @@ public:
     Cell();
     Cell(const std::string&, const Color&);
 
+    Cell& operator=(const Cell&);
+
     std::string get_value() const;
     void set_value(const std::string&);
     Color get_color() const;

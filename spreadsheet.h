@@ -24,7 +24,9 @@ public:
     void swap_columns(int, int);
 
 private:
-    bool check_index(int, int) const;
+    bool check_indexes(int, int) const;
+    void allocate_and_initialize(Cell**);
+    void deallocate();
 
 private:
     Cell** m_cells;
