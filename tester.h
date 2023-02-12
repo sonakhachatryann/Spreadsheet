@@ -2,6 +2,10 @@
 #define TESTER_H
 
 #include "spreadsheet.h"
+#include "int_cell.h"
+#include "double_cell.h"
+#include "date_cell.h"
+#include "string_cell.h"
 
 class Tester {
 public:

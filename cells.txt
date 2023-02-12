@@ -1,0 +1,4 @@
+row: 0 col: 0 IntCell 1 Blue
+row: 0 col: 1 DoubleCell 2.300000 Green
+row: 1 col: 0 StringCell hello world Pink
+row: 1 col: 1 DateCell 2023-2-12 Pink

@@ -6,16 +6,15 @@
 class Spreadsheet {
 public:
     Spreadsheet() = delete;
-    Spreadsheet(Cell**, int, int);
+    Spreadsheet(Cell***, int, int);
     ~Spreadsheet();
 
     int get_row() const;
     int get_col() const;
     void set_row(int);
     void set_col(int);
-    void set_cell_at(int, int, const Cell&);
-    void set_cell_at(int, int, const std::string&);
-    Cell get_cell_at(int, int);
+    void set_cell_at(int, int, Cell*);
+    Cell* get_cell_at(int, int);
     void add_row(int);
     void remove_row(int);
     void add_column(int);
@@ -25,11 +24,11 @@ public:
 
 private:
     bool check_indexes(int, int) const;
-    void allocate_and_initialize(Cell**);
+    void allocate_and_initialize(Cell***);
     void deallocate();
 
 private:
-    Cell** m_cells;
+    Cell*** m_cells;
     int m_row;
     int m_col;
 };

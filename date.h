@@ -40,6 +40,7 @@ public:
 
 class Date {
 public:
+    Date();
     Date(const Year&, const Month&, const Day&);
 
     Day get_day() const;

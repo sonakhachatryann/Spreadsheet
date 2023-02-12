@@ -2,32 +2,22 @@
 #define CELL_H
 
 #include <string>
+#include <fstream>
 #include "color.h"
 #include "date.h"
 
 class Cell {
 public:
     Cell();
-    Cell(const std::string&, const Color&);
-
-    Cell& operator=(const Cell&);
-
-    std::string get_value() const;
-    void set_value(const std::string&);
+    Cell(const Color&);
+    virtual void write(std::ofstream&) const = 0;
+    virtual std::string get_string_value() const = 0;
+    virtual void reset();
+    std::string color_to_string() const;
     Color get_color() const;
     void set_color(const Color& color);
-    void reset();
-    int to_int();
-    double to_double();
-    Date to_date();
 
-private:
-    bool is_valid_number();
-    bool is_valid_date();
-    std::vector<std::string>* parse(const std::string&);
-
-private:
-    std::string m_value;
+protected:
     Color m_color;
 };
 
