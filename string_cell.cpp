@@ -23,10 +23,6 @@ void StringCell::reset() {
     m_value = "";
 }
 
-std::string StringCell::get_value() const {
-    return m_value;
-}
-
 void StringCell::set_value(const std::string& value) {
     m_value = value;
 }

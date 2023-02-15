@@ -1,18 +1,17 @@
 #ifndef SPREADSHEET_H
 #define SPREADSHEET_H
 
+#include <map>
 #include "cell.h"
 
 class Spreadsheet {
 public:
     Spreadsheet() = delete;
-    Spreadsheet(Cell***, int, int);
+    Spreadsheet(int, int);
     ~Spreadsheet();
 
     int get_row() const;
     int get_col() const;
-    void set_row(int);
-    void set_col(int);
     void set_cell_at(int, int, Cell*);
     Cell* get_cell_at(int, int);
     void add_row(int);
@@ -24,13 +23,11 @@ public:
 
 private:
     bool check_indexes(int, int) const;
-    void allocate_and_initialize(Cell***);
+    void allocate_and_initialize(int, int);
     void deallocate();
 
 private:
-    Cell*** m_cells;
-    int m_row;
-    int m_col;
+    std::map<int, std::map<int, Cell*>> m_cells;
 };
 
 #endif //SPREADSHEET_H

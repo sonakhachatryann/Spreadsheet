@@ -54,28 +54,24 @@ void Tester::date() {
 void Tester::cell_operations() {
     int n = 2;
     int m = 2;
-    Cell*** data = new Cell * *[n];
-    for (int i = 0; i < n; ++i) {
-        data[i] = new Cell * [m];
-    }
     IntCell* c1 = new IntCell(1, Color::Blue);
     IntCell* c2 = new IntCell(2, Color::Green);
     IntCell* c3 = new IntCell(3, Color::Pink);
     IntCell* c4 = new IntCell(4, Color::Pink);
-    Spreadsheet sh(data, n, m);
+    Spreadsheet sh(n, m);
     sh.set_cell_at(0, 0, c1);
     sh.set_cell_at(0, 1, c2);
     sh.set_cell_at(1, 0, c3);
     sh.set_cell_at(1, 1, c4);
     IntCell* tmp1 = dynamic_cast<IntCell*>(sh.get_cell_at(0, 1));
-    if (tmp1->get_value() == 2) {
+    if (tmp1->get_value() == 2) { 
         std::cout << "Passed" << std::endl;
     }
     else {
         std::cout << "Failed" << std::endl;
     }
     IntCell* tmp2 = dynamic_cast<IntCell*>(sh.get_cell_at(1, 1));
-    if (tmp2->get_value() == 4) {
+    if (tmp2->get_value() == 4) { 
         std::cout << "Passed" << std::endl;
     }
     else {
@@ -83,7 +79,7 @@ void Tester::cell_operations() {
     }
     sh.swap_rows(0, 1);
     IntCell* tmp3 = dynamic_cast<IntCell*>(sh.get_cell_at(0, 1));
-    if (tmp3->get_value() == 4) {
+    if (tmp3->get_value() == 4) { 
         std::cout << "Passed" << std::endl;
     }
     else {
@@ -116,71 +112,73 @@ void Tester::cell_operations() {
 void Tester::row_col_operations() {
     int n = 2;
     int m = 2;
-    Cell*** data = new Cell * *[n];
-    for (int i = 0; i < n; ++i) {
-        data[i] = new Cell * [m] {};
-    }
     StringCell* c1 = new StringCell("1", Color::White);
     StringCell* c2 = new StringCell("2", Color::Blue);
     StringCell* c3 = new StringCell("3", Color::Green);
     StringCell* c4 = new StringCell("4", Color::Pink);
-    Spreadsheet sh(data, n, m);
+    Spreadsheet sh(n, m);
     sh.set_cell_at(0, 0, c1);
     sh.set_cell_at(0, 1, c2);
     sh.set_cell_at(1, 0, c3);
     sh.set_cell_at(1, 1, c4);
     sh.add_row(0);
-    sh.set_cell_at(1, 0, c3);
-    sh.set_cell_at(1, 1, c4);  
+    StringCell* c5 = new StringCell("5", Color::White);
+    StringCell* c6 = new StringCell("6", Color::Blue);
+    sh.set_cell_at(1, 0, c5);
+    sh.set_cell_at(1, 1, c6);  
     StringCell* tmp1 = dynamic_cast<StringCell*>(sh.get_cell_at(0, 0));
-    if (tmp1->get_value() == "1") {
+    if (tmp1->get_string_value() == "1") {
         std::cout << "Passed" << std::endl;
     }
     else {
         std::cout << "Failed" << std::endl;
     }
     StringCell* tmp2 = dynamic_cast<StringCell*>(sh.get_cell_at(1, 0));
-    if (tmp2->get_value() == "3") {
+    if (tmp2->get_string_value() == "5") {
         std::cout << "Passed" << std::endl;
     }
     else {
         std::cout << "Failed" << std::endl;
     }
     StringCell* tmp3 = dynamic_cast<StringCell*>(sh.get_cell_at(2, 1));
-    if (tmp3->get_value() == "4") {
+    if (tmp3->get_string_value() == "4") {
         std::cout << "Passed" << std::endl;
     }
     else {
         std::cout << "Failed" << std::endl;
     }
     sh.add_column(0);
-    sh.set_cell_at(0, 1, c2);
-    sh.set_cell_at(1, 1, c3);
-    sh.set_cell_at(2, 1, c4);
+    StringCell* c7 = new StringCell("7", Color::White);
+    StringCell* c8 = new StringCell("8", Color::Blue);
+    StringCell* c9 = new StringCell("9", Color::White);
+    sh.set_cell_at(0, 1, c7);
+    sh.set_cell_at(1, 1, c8);
+    sh.set_cell_at(2, 1, c9);
     StringCell* tmp4 = dynamic_cast<StringCell*>(sh.get_cell_at(1, 1));
-    if (tmp4->get_value() == "3") {
+    if (tmp4->get_string_value() == "8") {
         std::cout << "Passed" << std::endl;
     }
     else {
         std::cout << "Failed" << std::endl;
     }
     StringCell* tmp5 = dynamic_cast<StringCell*>(sh.get_cell_at(2, 2));
-    if (tmp5->get_value() == "4") {
+    if (tmp5->get_string_value() == "4") {
         std::cout << "Passed" << std::endl;
     }
     else {
         std::cout << "Failed" << std::endl;
     }
+    
     sh.remove_row(1);
     StringCell* tmp6 = dynamic_cast<StringCell*>(sh.get_cell_at(1, 1));
-    if (tmp6->get_value() == "4") {
+    if (tmp6->get_string_value() == "9") {
         std::cout << "Passed" << std::endl;
     }
     else {
         std::cout << "Failed" << std::endl;
     }
     StringCell* tmp7 = dynamic_cast<StringCell*>(sh.get_cell_at(1, 2));
-    if (tmp7->get_value() == "4") {
+    if (tmp7->get_string_value() == "4") {
         std::cout << "Passed" << std::endl;
     }
     else {
@@ -188,14 +186,14 @@ void Tester::row_col_operations() {
     }
     sh.remove_column(1);
     StringCell* tmp8 = dynamic_cast<StringCell*>(sh.get_cell_at(1, 1));
-    if (tmp8->get_value() == "4") {
+    if (tmp8->get_string_value() == "4") {
         std::cout << "Passed" << std::endl;
     }
     else {
         std::cout << "Failed" << std::endl;
     }
-    StringCell* tmp9 = dynamic_cast<StringCell*>(sh.get_cell_at(0, 1));
-    if (tmp9->get_value() == "2") {
+    StringCell* tmp9 = dynamic_cast<StringCell*>(sh.get_cell_at(0, 0));
+    if (tmp9->get_string_value() == "1") {
         std::cout << "Passed" << std::endl;
     }
     else {

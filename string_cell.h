@@ -12,7 +12,6 @@ public:
     virtual std::string get_string_value() const override;
     virtual void reset() override;
 
-    std::string get_value() const;
     void set_value(const std::string&);
 
 private:

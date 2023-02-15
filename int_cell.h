@@ -8,6 +8,7 @@ class IntCell : public Cell {
 public:
     IntCell();
     IntCell(int, const Color&);
+
     virtual void write(std::ofstream&) const override;
     virtual std::string get_string_value() const override;
     virtual void reset() override;
