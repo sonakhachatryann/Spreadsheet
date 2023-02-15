@@ -13,7 +13,7 @@ int main() {
         test.row_col_operations();
         
         //writing to a file
-        /*int n = 2;
+        int n = 2;
         int m = 2;
         Year y(2023);
         Month mn(2);
@@ -30,7 +30,7 @@ int main() {
         sh->set_cell_at(1, 1, c4);
         std::string filename = "cells.txt";
         Insert insert(filename, sh);
-        insert.write();*/
+        insert.write();
         return 0;
     }
     catch (const std::exception& e) {
