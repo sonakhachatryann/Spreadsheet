@@ -7,6 +7,7 @@ class DoubleCell : public Cell {
 public:
     DoubleCell();
     DoubleCell(double, const Color&);
+    virtual ~DoubleCell() = default;
 
     virtual void write(std::ofstream&) const override;
     virtual std::string get_string_value() const override;

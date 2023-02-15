@@ -10,6 +10,7 @@ class Cell {
 public:
     Cell();
     Cell(const Color&);
+    virtual ~Cell() = default;
 
     virtual void write(std::ofstream&) const = 0;
     virtual std::string get_string_value() const = 0;

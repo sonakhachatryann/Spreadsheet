@@ -7,6 +7,7 @@ class StringCell : public Cell {
 public:
     StringCell();
     StringCell(const std::string&, const Color&);
+    virtual ~StringCell() = default;
 
     virtual void write(std::ofstream&) const override;
     virtual std::string get_string_value() const override;

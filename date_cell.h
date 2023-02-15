@@ -6,6 +6,7 @@
 class DateCell : public Cell {
 public:
     DateCell(const Date&, const Color&);
+    virtual ~DateCell() = default;
 
     virtual void write(std::ofstream&) const override;
     virtual std::string get_string_value() const override;
