@@ -200,3 +200,23 @@ void Tester::row_col_operations() {
         std::cout << "Failed" << std::endl;
     }
 }
+
+void Tester::test_insert() {
+    int n = 2;
+    int m = 2;
+    Year y(2023);
+    Month mn(2);
+    Day d(12);
+    Date date(y, mn, d);
+    IntCell* c1 = new IntCell(1, Color::Blue);
+    DoubleCell* c2 = new DoubleCell(2.3, Color::Green);
+    StringCell* c3 = new StringCell("hello world", Color::Pink);
+    DateCell* c4 = new DateCell(date, Color::Pink);
+    Spreadsheet* sh = new Spreadsheet(n, m);
+    sh->set_cell_at(0, 0, c1);
+    sh->set_cell_at(0, 1, c2);
+    sh->set_cell_at(1, 0, c3);
+    sh->set_cell_at(1, 1, c4);
+    std::string filename = "cells.txt";
+    sh->insert(filename);
+}

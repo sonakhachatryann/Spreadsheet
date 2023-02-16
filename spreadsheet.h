@@ -20,6 +20,7 @@ public:
     void remove_column(int);
     void swap_rows(int, int);
     void swap_columns(int, int);
+    void insert(const std::string&);
 
 private:
     bool check_indexes(int, int) const;

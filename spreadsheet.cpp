@@ -155,6 +155,21 @@ void Spreadsheet::swap_columns(int c1, int c2) {
     }
 }
 
+void Spreadsheet::insert(const std::string& filename) {
+    std::ofstream out;
+    out.open(filename, std::ofstream::app);
+    if (!out.is_open()) {
+        throw std::runtime_error("Can not open the file!");
+    }
+    for (int i = 0; i < get_row(); ++i) {
+        for (int j = 0; j < get_col(); ++j) {
+            out << "row: " << i << " " << "col: " << j << " ";
+            get_cell_at(i, j)->write(out);
+        }
+    }
+    out.close();
+}
+
 bool Spreadsheet::check_indexes(int i, int j) const {
     if (i < 0 || i >= get_row() || j < 0 || j >= get_col()) {
 		return false;

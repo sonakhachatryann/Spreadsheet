@@ -13,6 +13,7 @@ public:
     void date();
     void cell_operations();
     void row_col_operations();
+    void test_insert();
 };
 
 #endif //TESTER_H
