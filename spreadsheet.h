@@ -3,8 +3,9 @@
 
 #include <map>
 #include "cell.h"
+#include "table.h"
 
-class Spreadsheet {
+class Spreadsheet : Table {
 public:
     Spreadsheet() = delete;
     Spreadsheet(int, int);
@@ -14,13 +15,13 @@ public:
     int get_col() const;
     void set_cell_at(int, int, Cell*);
     Cell* get_cell_at(int, int);
-    void add_row(int);
-    void remove_row(int);
-    void add_column(int);
-    void remove_column(int);
-    void swap_rows(int, int);
-    void swap_columns(int, int);
-    void insert(const std::string&);
+    void add_row(int) override;
+    void remove_row(int) override;
+    void add_column(int) override;
+    void remove_column(int) override;
+    void swap_rows(int, int) override;
+    void swap_columns(int, int) override;
+    void insert(const std::string&) override;
 
 private:
     bool check_indexes(int, int) const;
